@@ -21,6 +21,7 @@ public class Apresentacao {
         List<Conta> lista
                 = new ArrayList<>();
 
+        
         Conta contaDaniel = new ContaW();
         contaDaniel.setNumero(1212L);
         contaDaniel.setSaldo(12);
@@ -29,6 +30,7 @@ public class Apresentacao {
         contaLucas.setNumero(132L);
         contaLucas.setSaldo(2.75);
 
+        
         lista.add(contaLucas);
         lista.add(contaDaniel);
 
