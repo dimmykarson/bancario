@@ -16,6 +16,15 @@ public class Livro {
     private String autor;
     private String isbn;
     private int qtPaginas;
+    private int qtNoEstoque;
+
+    public int getQtNoEstoque() {
+        return qtNoEstoque;
+    }
+
+    public void setQtNoEstoque(int qtNoEstoque) {
+        this.qtNoEstoque = qtNoEstoque;
+    }
 
     public int getCodigo() {
         return codigo;
