@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import projetobase.beans.Livro;
 
@@ -26,7 +27,7 @@ public class BancoDeDados {
         lerArquivo(arquivo, livros);
     }
 
-    public static void gravarLista(File arquivo, List<Livro> livros) throws IOException {
+    public static void gravarLista(File arquivo, List<Livro> livros) throws IOException  {
         FileWriter fw = new FileWriter(arquivo);
         BufferedWriter bw = new BufferedWriter(fw);
         for (Livro livro : livros) {
@@ -57,6 +58,8 @@ public class BancoDeDados {
             l.setQtNoEstoque(Integer.parseInt(dados[5]));
             livros.add(l);
         }
+        
+        Collections.sort(livros);
 
         br.close();
         fr.close();

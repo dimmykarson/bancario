@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import projetobase.beans.Livro;
+import projetobase.estudo.exceptions.ValidacaoDeLivros;
+import projetobase.exceptions.ValidacaoDeLivrosException;
 import projetobase.util.BancoDeDados;
 
 /**
@@ -29,7 +31,8 @@ public class ClassePrincipal {
     static int codigoBase = 1;
     static File arquivo = new File("C:/temp4/bancoDeDados.txt");
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)
+            throws IOException, ValidacaoDeLivrosException {
         BancoDeDados.lerArquivo(arquivo, livros);
         while (true) {
             System.out.println("========= Menu ============");
@@ -67,7 +70,8 @@ public class ClassePrincipal {
         }
     }
 
-    private static void cadastrarLivro() {
+    private static void cadastrarLivro() 
+            throws ValidacaoDeLivrosException {
         System.out.println("Cadastrando Livros...");
         System.out.print("Informe o nome do livro: ");
         String nomeLivro = s.next();
@@ -75,11 +79,16 @@ public class ClassePrincipal {
         String nomeAutor = s.next();
         System.out.print("Qual a quantidade? ");
         int qt = s.nextInt();
+        System.out.print("Qual a ISBN? ");
+        String isbn = s.next();
         Livro l = new Livro();
         l.setTitulo(nomeLivro);
         l.setAutor(nomeAutor);
         l.setCodigo(codigoBase);
         l.setQtNoEstoque(qt);
+        l.setIsbn(isbn);
+        ValidacaoDeLivros.verificaLivro(l);
+
         codigoBase++;
         Livro l2 = testeDeUnidade(l);
         if (l2 == null) {

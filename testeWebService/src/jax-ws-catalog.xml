@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://sticdev30-pc:8080/NovoWebService/NovoWebService" uri="wsdl/sticdev30-pc_8080/NovoWebService/NovoWebService.xml"/>
+</catalog>

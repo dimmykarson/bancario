@@ -9,7 +9,7 @@ package projetobase.beans;
  *
  * @author sticdev30
  */
-public class Livro {
+public class Livro implements Comparable<Livro> {
 
     private int codigo;
     private String titulo;
@@ -64,6 +64,17 @@ public class Livro {
 
     public void setQtPaginas(int qtPaginas) {
         this.qtPaginas = qtPaginas;
+    }
+
+    @Override
+    public int compareTo(Livro o) {
+        if (this.getQtNoEstoque() < o.getQtNoEstoque()) {
+            return -1;
+        } else if (this.getQtNoEstoque() > o.getQtNoEstoque()) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
 }
